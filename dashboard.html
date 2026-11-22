@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f5f7fb">
+    <title>StockMate | Dashboard</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="dashboard.css?v=49">
+</head>
+<body class="auth-pending">
+    <div class="app-shell">
+        <aside class="sidebar" id="sidebar">
+            <a class="brand" href="dashboard.html" aria-label="StockMate home">
+                <img class="brand-icon logo-image" src="favicon.svg" alt="StockMate logo">
+                <span class="brand-name">Stock<span>Mate</span></span>
+            </a>
+
+            <div class="workspace-label">STOCK MANAGEMENT</div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="nav-item active" href="#overview-view" aria-current="page"><span class="nav-icon" aria-hidden="true">▦</span><span>Overview</span></a>
+                <a class="nav-item" href="#update-sales"><span class="nav-icon" aria-hidden="true">↻</span><span>Update Sales</span></a>
+                <a class="nav-item" href="#stock-history"><span class="nav-icon" aria-hidden="true">◷</span><span>Stock History</span></a>
+                <a class="nav-item" href="#reports"><span class="nav-icon" aria-hidden="true">▥</span><span>Reports</span></a>
+                <a class="nav-item" href="#product-list"><span class="nav-icon" aria-hidden="true">▤</span><span>Product List</span></a>
+                <a class="nav-item" href="#product-details"><span class="nav-icon" aria-hidden="true">◉</span><span>Product Details</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button class="profile-button" id="profileButton" type="button" aria-label="Sign out">
+                    <span class="avatar" id="avatar">A</span>
+                    <span class="profile-copy"><strong id="profileName">Administrator</strong><small id="profileEmail">Admin account</small></span>
+                    <span class="profile-more">Sign out <span aria-hidden="true">↗</span></span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content" id="dashboard">
+            <header class="topbar">
+                <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation">☰</button>
+                <div class="breadcrumbs"><span>StockMate</span><span class="crumb-divider">/</span><strong>Inventory workspace</strong></div>
+                <div class="topbar-actions">
+                    <span class="today" id="todayLabel"></span>
+                    
+                </div>
+            </header>
+
+            <section class="dashboard-view active overview-view" id="overview-view">
+            <section class="page-heading">
+                <div>
+                    <div class="eyebrow">YOUR BUSINESS AT A GLANCE</div>
+                    <h1>Good to see you<span class="wave">✦</span></h1>
+                    <p>Here’s what’s happening with your inventory today.</p>
+                </div>
+                
+            </section>
+
+            <nav class="overview-shortcuts" aria-label="Dashboard shortcuts">
+                <a class="shortcut-item" href="#update-sales"><span class="shortcut-icon edit-icon">↻</span><span>Update Sales</span><b>→</b></a>
+                <a class="shortcut-item" href="#stock-history"><span class="shortcut-icon history-icon">◷</span><span>Stock History</span><b>→</b></a>
+                <a class="shortcut-item" href="#reports"><span class="shortcut-icon report-icon">▥</span><span>Reports</span><b>→</b></a>
+                <a class="shortcut-item" href="#product-list"><span class="shortcut-icon product-icon">▤</span><span>Product List</span><b>→</b></a><a class="shortcut-item" href="#product-details"><span class="shortcut-icon product-icon">◉</span><span>Product Details</span><b>→</b></a>
+            </nav>            <div class="preview-note"><span class="preview-dot"></span><span><strong>Preview data</strong> — connect your products table to show live inventory here.</span></div>
+
+            <section class="metric-grid" aria-label="Inventory summary">
+                <article class="metric-card">
+                    <div class="metric-top"><span class="metric-label">Total Product</span><span class="metric-icon blue" aria-hidden="true">▤</span></div>
+                    <div class="metric-value">0</div>
+                    <div class="metric-foot"><span class="trend positive">↗ 8.2%</span><span>vs. last month</span></div>
+                    <div class="sparkline blue-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="metric-card">
+                    <div class="metric-top"><span class="metric-label">Total Stock</span><span class="metric-icon green" aria-hidden="true">▥</span></div>
+                    <div class="metric-value">0 <small>units</small></div>
+                    <div class="metric-foot"><span class="trend positive">In inventory</span><span>across all products</span></div>
+                    <div class="sparkline green-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="metric-card">
+                    <div class="metric-top"><span class="metric-label">Total Sales</span><span class="metric-icon amber" aria-hidden="true">⌁</span></div>
+                    <div class="metric-value">0 units</div>
+                    <div class="metric-foot"><span class="trend positive">↗ 12.4%</span><span>this month</span></div>
+                    <div class="sparkline amber-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+                <article class="metric-card">
+                    <div class="metric-top"><span class="metric-label">Available Stock</span><span class="metric-icon red" aria-hidden="true">⊘</span></div>
+                    <div class="metric-value">0 <small>units</small></div>
+                    <div class="metric-foot"><span class="trend positive">Ready to sell</span><span>currently available</span></div>
+                    <div class="sparkline red-line" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                </article>
+            </section>
+
+            <section class="content-grid overview-grid">
+
+
+                <aside class="side-panels">
+                    <article class="panel stock-panel" id="categories">
+                        <div class="panel-heading compact"><div><h2>Stock health</h2><p>Current inventory status</p></div><button class="more-button" aria-label="More stock health options">···</button></div>
+                        <div class="health-summary"><div class="donut"><div><strong>0</strong><small>Products</small></div></div><div class="health-legend"><div><i class="legend-green"></i><span>In stock</span><strong>0</strong></div><div><i class="legend-amber"></i><span>Low stock</span><strong>0</strong></div><div><i class="legend-red"></i><span>Out of stock</span><strong>0</strong></div></div></div>
+                        <div class="health-tip"><span aria-hidden="true">✦</span><p><strong>18 items need your attention.</strong><br>Review low stock products before they run out.</p></div>
+                    </article>
+                    <article class="panel activity-panel">
+                        <div class="panel-heading compact"><div><h2>Recent activity</h2><p>Latest inventory updates</p></div><button class="more-button" aria-label="More activity options">···</button></div>
+                        <div class="activity-list">
+                            <div class="activity-item"><span class="activity-icon added">＋</span><div><p><strong>New product added</strong><br>Wireless Headphones</p><small>10 minutes ago</small></div></div>
+                            <div class="activity-item"><span class="activity-icon updated">↻</span><div><p><strong>Stock updated</strong><br>Cotton T-Shirt · 12 units</p><small>1 hour ago</small></div></div>
+                            <div class="activity-item"><span class="activity-icon sold">↗</span><div><p><strong>Stock running low</strong><br>Smart Watch S2 · 3 left</p><small>Yesterday</small></div></div>
+                        </div>
+                        <a class="activity-link" href="#stock-history">View activity <span aria-hidden="true">→</span></a>
+                    </article>
+                </aside>
+            </section>
+            </section>
+
+            <section class="dashboard-view workspace-section product-list-view" id="product-list">
+                <div class="section-title"><div><span class="section-kicker">YOUR CATALOG</span><h2>Product List</h2><p>Search and review products and their current stock.</p></div></div>
+                <article class="panel inventory-panel" id="productTablePanel">
+                    <div class="panel-heading">
+                        <div><h2>Product List</h2><p>Browse your products and current stock levels.</p></div>
+                        
+                    </div>
+                    <div class="table-toolbar">
+                        <label class="search-box"><span aria-hidden="true">⌕</span><input id="productSearch" type="search" placeholder="Search products..." aria-label="Search products"></label>
+                    </div>
+                    <div class="table-wrap">
+                        <table>
+                            <thead><tr><th>PRODUCT</th><th>SKU</th><th>CATEGORY</th><th>AVAILABLE STOCK</th><th>REORDER LEVEL</th><th>STATUS</th><th><span class="sr-only">Actions</span></th></tr></thead>
+                            <tbody id="productRows"></tbody>
+                        </table>
+                        <div class="empty-state" id="emptyState" hidden>No products match your search.</div>
+                    </div>
+                    <div class="table-footer"><span>Showing <strong id="shownCount">5</strong> of 0 products</span></div>
+                </article>
+            </section>
+
+            <section class="dashboard-view workspace-section update-sales-view" id="update-sales">
+    <div class="section-title"><div><span class="section-kicker">PRODUCT &amp; SALES ENTRY</span><h2>Update Sales</h2><p>Add a product or record new stock and sales quantities.</p></div><button class="secondary-button" id="toggleSalesForm" type="button">＋ Add / Update Product</button></div>
+    <div class="panel sales-entry-panel">
+        <form id="stockEditForm" class="stock-form sales-entry-form">
+            <label>Product Code<input id="salesProductCode" required maxlength="40" placeholder="Enter product code"></label>
+            <label>Product Name<input id="salesProductName" required maxlength="80" placeholder="Enter product name"></label><label>HSN Code<input id="salesHsnCode" maxlength="24" placeholder="Enter HSN code"></label>
+            <label>Previous Stock<input id="salesPreviousStock" type="number" min="0" value="0"></label>
+            <label>New Stock<input id="salesNewStock" type="number" min="0" step="1" value="0" required></label>
+            <label>Unit<select id="salesUnit"><option>Piece</option><option>Box</option><option>Pack</option><option>Kg</option><option>Gram</option><option>Litre</option><option>Meter</option><option>Set</option><option>Other</option></select></label>
+            <label>Sales<input id="salesQuantity" type="number" min="0" step="1" value="0" required></label><label>Invoice Number<input id="salesInvoiceNumber" type="text" maxlength="60" placeholder="Enter invoice number"></label>
+            <div class="form-actions"><span id="salesFormHint">Previous Stock uses last month's closing Available Stock. All fields are editable.</span><div class="sales-form-buttons"><button class="primary-button" type="submit">Save Product &amp; Sales</button></div></div>
+        </form>
+    </div>
+    <div class="sales-list-heading"><div><h3>Updated Product List</h3><p>Latest stock and sales figures for each product.</p></div><label class="sales-search-box"><span aria-hidden="true">⌕</span><input id="salesProductSearch" type="search" placeholder="Search by product code or name" aria-label="Search products"></label></div>
+    <div class="panel table-panel sales-table-panel"><div class="table-scroll"><table><thead><tr><th>PRODUCT CODE</th><th>PRODUCT NAME</th><th>PREVIOUS STOCK</th><th>NEW STOCK</th><th>TOTAL STOCK</th><th>UNIT</th><th>SALES</th><th>AVAILABLE STOCK</th><th>ACTION</th></tr></thead><tbody id="salesProductRows"></tbody></table><div class="empty-state" id="salesProductsEmpty">No products yet. Add the first product above.</div></div></div>
+</section>
+
+
+
+
+
+            <section class="dashboard-view workspace-section" id="stock-history">
+                <div class="section-title"><div><span class="section-kicker">AUDIT TRAIL</span><h2>Stock History</h2><p>Recent additions, removals and stock corrections.</p></div><button class="secondary-button" id="historyExport" type="button">↓ <span>Export history</span></button></div>
+                <div class="panel history-panel">
+                    <div class="history-filter-bar"><label for="historyDateFilter">History Date</label><input id="historyDateFilter" type="date" aria-label="Filter stock history by date"><button class="secondary-button" id="clearHistoryDate" type="button">Today</button></div>
+                    <div class="table-wrap"><table><thead><tr><th>DATE &amp; TIME</th><th>PRODUCT</th><th>TYPE</th><th>QUANTITY</th><th>NOTE</th><th>UPDATED BY</th></tr></thead>
+                    <tbody></tbody></table></div>
+                    <div class="history-foot">Showing 4 recent sample activities</div>
+                </div>
+            </section>
+
+                        <section class="dashboard-view workspace-section reports-view" id="reports">
+                <div class="section-title"><div><span class="section-kicker">INVENTORY INSIGHTS</span><h2>Reports</h2><p>Stock movement and product availability for your selected period.</p></div><div class="reports-filters"><label class="report-period-control"><span>Report period</span><select id="reportPeriod" class="period-select" aria-label="Report period"><option value="7days">Last 7 days</option><option value="30days">Last 30 days</option><option value="month">This month</option></select></label></div></div>
+                <div class="report-summary-grid" id="reportSummary"></div>
+                <div class="reports-content-grid">
+                    <article class="panel report-panel movement-panel"><div class="report-panel-heading"><div><h3>Stock Movement</h3><p>Units received and sold by day</p></div><div class="movement-legend"><span><i class="received-key"></i>Received</span><span><i class="sold-key"></i>Sold</span></div></div><div class="movement-chart" id="movementChart"></div><div class="report-empty" id="movementEmpty" hidden>No stock movement in this period.</div></article>
+                    <article class="panel report-panel stock-status-panel"><div class="report-panel-heading"><div><h3>Stock Status</h3><p>Current product availability</p></div></div><div class="status-total"><strong id="statusProductCount">0</strong><span>products tracked</span></div><div class="status-bar"><i id="inStockBar"></i><i id="lowStockBar"></i><i id="outStockBar"></i></div><div class="status-legend"><div><i class="received-key"></i><span>In stock</span><strong id="inStockCount">0</strong></div><div><i class="low-key"></i><span>Low stock</span><strong id="lowStockCount">0</strong></div><div><i class="sold-key"></i><span>Out of stock</span><strong id="outStockCount">0</strong></div></div></article>
+                    <div class="monthly-insights-grid"><article class="panel report-panel top-products-panel"><div class="report-panel-heading"><div><h3>Top Selling Products</h3><p>Most units sold in <span id="salesMonthLabel"></span></p></div><label class="sales-month-control"><span>Month</span><input id="reportMonth" type="month" aria-label="Filter top-selling products by month"></label></div><div class="top-selling-comparison" id="topSellingComparison"><div class="sales-rank-card most-sold"><span class="sales-rank-label">MOST SOLD</span><strong id="mostSoldName">—</strong><small id="mostSoldCode"></small><div><b id="mostSoldQuantity">0</b><span id="mostSoldUnit">units</span></div></div><div class="sales-rank-card least-sold"><span class="sales-rank-label">LEAST SOLD</span><strong id="leastSoldName">—</strong><small id="leastSoldCode"></small><div><b id="leastSoldQuantity">0</b><span id="leastSoldUnit">units</span></div></div></div><div class="report-table-empty" id="topProductsEmpty" hidden>No products to compare yet.</div></article><article class="panel report-panel selected-product-panel"><div class="report-panel-heading"><div><h3>Product Details</h3><p>Monthly movement for the selected product</p></div><label class="sales-month-control"><span>Month</span><input id="selectedProductMonth" type="month" aria-label="Filter product details by month"></label></div><div class="report-product-picker"><label class="sr-only" for="reportProductSearch">Search for a product</label><input id="reportProductSearch" class="report-product-select" type="search" placeholder="Search product name or code" autocomplete="off" aria-label="Search product name or code"><div id="reportProductOptions" class="report-product-options" role="listbox" hidden></div></div><div class="selected-product-details" id="selectedProductMetrics"><div><span>Sold this month</span><strong id="selectedProductSold">—</strong></div><div><span>Received this month</span><strong id="selectedProductReceived">—</strong></div><div><span>Available now</span><strong id="selectedProductAvailable">—</strong></div></div><div class="product-detail-empty" id="selectedProductNoResult" hidden>No result found.</div></article></div><article class="panel report-panel product-report-panel"><div class="report-panel-heading"><div><h3>Product Stock Summary</h3><p>Current stock levels across your product list</p></div><span class="report-product-count" id="reportProductCount">0 products</span></div><div class="report-table-wrap"><table class="report-table"><thead><tr><th>PRODUCT</th><th>CODE</th><th>PREVIOUS</th><th>NEW STOCK</th><th>TOTAL</th><th>SALES</th><th>AVAILABLE</th></tr></thead><tbody id="reportProductRows"></tbody></table><div class="report-table-empty" id="reportProductsEmpty" hidden>No products to report yet.</div></div></article>
+                </div>
+                <div class="report-disclaimer">Reports update automatically when you save stock or sales changes.</div>
+            </section>
+                                    <section class="dashboard-view workspace-section product-details-view" id="product-details">
+                <div class="section-title"><div><span class="section-kicker">PRODUCT CATALOG</span><h2>Product Details</h2><p>Product names, codes and HSN codes.</p></div></div>
+                <article class="panel product-details-panel">
+                    <div class="product-details-toolbar"><label class="search-box product-details-search"><span aria-hidden="true">⌕</span><input id="productDetailsSearch" type="search" placeholder="Search by product name, code or HSN code" aria-label="Search product details"></label></div>
+                    <div class="product-details-table-wrap">
+                        <table class="product-details-table"><thead><tr><th>PRODUCT NAME</th><th>PRODUCT CODE</th><th>HSN CODE</th></tr></thead><tbody id="productDetailsRows"></tbody></table>
+                        <div class="empty-state" id="productDetailsEmpty" hidden>No product details yet.</div>
+                    </div>
+                </article>
+            </section><footer class="page-footer">© 2026 StockMate <span>·</span> Inventory made simple.</footer>
+        </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="closeModal" type="button" aria-label="Close">×</button>
+            <span class="modal-mark">＋</span>
+            <h2 id="modalTitle">Connect your inventory</h2>
+            <p>This dashboard is ready for your products. Connect a <code>products</code> table in Supabase to add and manage live inventory.</p>
+            <button class="primary-button modal-button" id="modalDone" type="button">Got it</button>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="dashboard-app.js?v=33"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

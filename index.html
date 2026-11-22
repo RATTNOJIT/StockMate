@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockMate | Admin Login</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css?v=7">
+</head>
+<body>
+
+    <div class="login-container">
+
+        <div class="login-left">
+            <div class="brand">
+                <img class="brand-icon logo-image" src="favicon.svg" alt="StockMate logo">
+                <h2>Stock<span>Mate</span></h2>
+            </div>
+
+            <div class="welcome-content">
+                <span class="tag">INVENTORY MANAGEMENT</span>
+                <h1>Your Stock,<br><span>Always in Control.</span></h1>
+                <p>Manage your products, monitor inventory and keep your business organized with StockMate.</p>
+
+                <div class="features">
+                    <div>✓ Easy Stock Management</div>
+                    <div>✓ Real-time Stock Updates</div>
+                    <div>✓ Smart Inventory Reports</div>
+                </div>
+            </div>
+
+            <div class="left-footer">
+                © 2026 StockMate. All rights reserved.
+            </div>
+        </div>
+
+        <div class="login-right">
+            <div class="login-card">
+
+                <div class="mobile-brand">
+                    <img class="brand-icon logo-image" src="favicon.svg" alt="StockMate logo">
+                    <h2>Stock<span>Mate</span></h2>
+                </div>
+
+                <div class="login-heading" id="loginHeading">
+                    <span class="admin-label">ADMIN PANEL</span>
+                    <h1>Welcome Back!</h1>
+                    <p>Sign in to access your dashboard.</p>
+                </div>
+
+                <form id="loginForm">
+
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email"
+                            placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="password-box">
+                            <input type="password" id="password"
+                                placeholder="Enter your password" required>
+                            <button type="button" id="togglePassword">Show</button>
+                        </div>
+                    </div>
+
+                    <div class="form-options">
+                        <a href="#" class="forgot">Forgot Password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">
+                        Sign In <span>→</span>
+                    </button>
+
+                    <p id="message"></p>
+
+                </form>
+
+                <form id="forgotPasswordForm" hidden>
+                    <div class="login-heading"><span class="admin-label">PASSWORD RECOVERY</span><h1>Reset Password</h1><p>Enter your admin email and we’ll send you a secure reset link.</p></div>
+                    <div class="input-group"><label for="forgotEmail">Email Address</label><input type="email" id="forgotEmail" autocomplete="email" placeholder="Enter your email" required></div>
+                    <button type="submit" class="login-btn" id="forgotSubmit">Send Reset Link <span>→</span></button>
+                    <p id="forgotMessage" aria-live="polite"></p>
+                    <a class="forgot back-to-signin" href="#">← Back to Sign In</a>
+                </form>
+
+                <form id="resetPasswordForm" hidden>
+                    <div class="login-heading reset-heading"><span class="admin-label">ADMIN PANEL</span><h1>Set a New Password</h1><p>Choose a new password for your admin account.</p></div>
+                    <div class="input-group"><label for="newPassword">New Password</label><div class="password-box"><input type="password" id="newPassword" autocomplete="new-password" minlength="8" placeholder="Enter a new password" required><button type="button" id="toggleNewPassword">Show</button></div></div>
+                    <div class="input-group"><label for="confirmPassword">Confirm New Password</label><div class="password-box"><input type="password" id="confirmPassword" autocomplete="new-password" minlength="8" placeholder="Confirm your new password" required><button type="button" id="toggleConfirmPassword">Show</button></div></div>
+                    <button type="submit" class="login-btn" id="resetPasswordButton">Save New Password <span>→</span></button>
+                    <p id="resetMessage" aria-live="polite"></p>
+                </form>
+
+                <a class="user-side-link" href="user.html">Open User Side →</a>
+                <div class="login-bottom">
+                    <span>🔒</span>
+                    Secure Admin Access
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
+    <script src="script.js?v=4"></script>
+</body>
+</html>
+

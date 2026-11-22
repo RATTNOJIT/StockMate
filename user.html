@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#f5f7fb">
+  <title>StockMate | User Portal</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="user.css?v=7">
+</head>
+<body>
+  <div class="user-shell">
+    <aside class="user-sidebar">
+      <a class="user-brand" href="#user-overview"><img class="user-logo-image" src="favicon.svg" alt="StockMate logo"><strong>Stock<span>Mate</span></strong></a>
+      <div class="user-nav-label">INVENTORY</div>
+      <nav class="user-nav" aria-label="User navigation">
+        <a class="active" href="#user-overview"><i>▦</i>Overview</a>
+        <a href="#user-history"><i>◷</i>Stock History</a>
+        <a href="#user-reports"><i>▥</i>Reports</a>
+        <a href="#user-products"><i>▤</i>Product List</a>
+        <a href="#user-details"><i>◉</i>Product Details</a>
+        <a class="login-link" href="index.html"><i>↗</i>Admin Login</a>
+      </nav>
+      <div class="user-sidebar-foot">Read-only inventory view</div>
+    </aside>
+    <main class="user-main">
+      <header class="user-topbar"><div class="user-crumb"><button id="userMenu" type="button" aria-label="Open menu">☰</button><span>StockMate</span><b>/</b><strong id="userPageName">Overview</strong></div><time id="userToday"></time></header>
+      <section class="user-page active" id="user-overview">
+        <div class="user-shortcuts">
+          <a href="#user-history"><i class="history-icon">◷</i><strong>Stock History</strong><span>View stock updates</span><b>→</b></a>
+          <a href="#user-reports"><i class="reports-icon">▥</i><strong>Reports</strong><span>Review stock activity</span><b>→</b></a>
+          <a href="#user-products"><i class="products-icon">▤</i><strong>Product List</strong><span>Browse available stock</span><b>→</b></a>
+          <a href="#user-details"><i class="details-icon">◉</i><strong>Product Details</strong><span>View product codes</span><b>→</b></a>
+        </div>
+      </section>
+      <section class="user-page" id="user-history">
+        <div class="user-title"><div><small>AUDIT TRAIL</small><h1>Stock History</h1><p>Recent stock additions and sales.</p></div></div>
+        <article class="user-card user-table-card"><div class="user-toolbar"><label class="date-filter"><span>History Date</span><input id="historyDate" type="date"></label><button id="clearHistoryDate" class="user-secondary" type="button">Today</button></div><div class="user-table-scroll"><table><thead><tr><th>DATE &amp; TIME</th><th>PRODUCT</th><th>ACTIVITY</th><th>CHANGE</th><th>STOCK AFTER</th><th>INVOICE NUMBER</th></tr></thead><tbody id="historyRows"></tbody></table><div class="user-empty" id="historyEmpty" hidden>No stock history found.</div></div><footer class="user-table-foot" id="historyCount"></footer></article>
+      </section>
+      <section class="user-page" id="user-reports">
+        <div class="user-title"><div><small>INVENTORY INSIGHTS</small><h1>Reports</h1><p>Stock movement and availability for a selected period.</p></div><label class="user-select-label">Report period<select id="reportPeriod"><option value="7days">Last 7 days</option><option value="30days">Last 30 days</option><option value="month">This month</option></select></label></div>
+        <div class="user-metrics" id="reportMetrics"></div>
+        <div class="user-report-grid"><article class="user-card movement-card"><div class="user-card-head"><div><h2>Stock Movement</h2><p>Units received and sold by day</p></div><div class="user-legend"><span><i class="received-dot"></i>Received</span><span><i class="sold-dot"></i>Sold</span></div></div><div class="user-chart" id="movementChart"></div><div class="user-empty" id="movementEmpty" hidden>No stock movement in this period.</div></article><article class="user-card stock-status-card"><div class="user-card-head"><div><h2>Stock Status</h2><p>Current product availability</p></div></div><div class="status-total"><strong id="statusTotal">0</strong><span>products tracked</span></div><div class="status-bar"><i id="statusIn"></i><i id="statusLow"></i><i id="statusOut"></i></div><div class="status-list"><div><i class="received-dot"></i><span>In stock</span><strong id="statusInCount">0</strong></div><div><i class="low-dot"></i><span>Low stock</span><strong id="statusLowCount">0</strong></div><div><i class="out-dot"></i><span>Out of stock</span><strong id="statusOutCount">0</strong></div></div></article></div>
+        <div class="user-monthly-insights"><div class="user-card top-products-card"><div class="user-card-head"><div><h2>Top Selling Products</h2><p>Most and least units sold in <span id="salesMonthLabel"></span></p></div><label class="date-filter month-filter"><span>Month</span><input id="salesMonth" type="month"></label></div><div class="top-products" id="topProducts"></div><div class="user-empty" id="topProductsEmpty" hidden>No record found for this month.</div></div><div class="user-card selected-product-card"><div class="user-card-head"><div><h2>Product Details</h2><p>Monthly movement for the selected product</p></div><label class="date-filter month-filter"><span>Month</span><input id="userProductMonth" type="month" aria-label="Filter product details by month"></label></div><div class="user-product-picker"><label class="user-sr-only" for="userProductSearch">Search product</label><input id="userProductSearch" type="search" placeholder="Search product name or code" autocomplete="off" aria-label="Search product name or code"><div id="userProductOptions" class="user-product-options" role="listbox" hidden></div></div><div class="user-selected-metrics" id="userSelectedMetrics"><div><span>Sold this month</span><strong id="userSelectedSold">—</strong></div><div><span>Received this month</span><strong id="userSelectedReceived">—</strong></div><div><span>Available now</span><strong id="userSelectedAvailable">—</strong></div></div><div class="user-selected-empty" id="userSelectedNoResult" hidden>No result found.</div></div></div>
+      </section>
+      <section class="user-page" id="user-products">
+        <div class="user-title"><div><small>CATALOG</small><h1>Product List</h1><p>Browse product information and available quantities.</p></div></div>
+        <article class="user-card user-table-card"><div class="user-toolbar"><label class="user-search"><span>⌕</span><input id="productSearch" type="search" placeholder="Search by product name or code" aria-label="Search products"></label><span class="result-count" id="productCount"></span></div><div class="user-table-scroll"><table><thead><tr><th>PRODUCT NAME</th><th>PRODUCT CODE</th><th>AVAILABLE STOCK</th><th>UNIT</th><th>STATUS</th></tr></thead><tbody id="productRows"></tbody></table><div class="user-empty" id="productsEmpty" hidden>No products found.</div></div></article>
+      </section>
+      <section class="user-page" id="user-details">
+        <div class="user-title"><div><small>PRODUCT CATALOG</small><h1>Product Details</h1><p>Product names, codes and HSN codes.</p></div></div>
+        <article class="user-card user-table-card"><div class="user-toolbar"><label class="user-search"><span>⌕</span><input id="detailsSearch" type="search" placeholder="Search by product name, code or HSN code" aria-label="Search product details"></label><span class="result-count" id="detailsCount"></span></div><div class="user-table-scroll"><table><thead><tr><th>PRODUCT NAME</th><th>PRODUCT CODE</th><th>HSN CODE</th></tr></thead><tbody id="detailsRows"></tbody></table><div class="user-empty" id="detailsEmpty" hidden>No product details found.</div></div></article>
+      </section>
+      <footer class="user-footer">© 2026 StockMate <span>·</span> Inventory made simple.</footer>
+    </main>
+  </div>
+  <script src="user.js?v=4"></script>
+</body>
+</html>
